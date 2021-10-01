@@ -105,12 +105,28 @@ func HandleReminderEmailTask(ctx context.Context, t *asynq.Task) error {
 }
 
 // --------------------------------------------------------------------------------------- //
+const (
+	// LOGSPATH
+	LOGSPATH = "cachedblog/worker_uploader_service.log"
+
+	// PARSED_IMAGE
+	PARSED_IMAGE = "file_store/"
+)
+
 func uploadToPythonCudaServerAsync(imagePath string, docModelID uint64, docName string) error {
 
 	var providerLogs = log.New()
 	providerLogs.SetFormatter(&log.JSONFormatter{})
 	providerLogs.SetOutput(os.Stdout)
 	providerLogs.SetLevel(log.InfoLevel)
+	providerFile, err := os.OpenFile(LOGSPATH, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	if err == nil {
+		providerLogs.Out = providerFile
+	} else {
+		fmt.Printf("\nLOG OPEN CRASH")
+		providerLogs.Fatal(err)
+	}
+	defer providerFile.Close()
 
 	host := "database"
 	port := 5432
