@@ -140,10 +140,9 @@ func uploadToPythonCudaServerAsync(imagePath string, docModelID uint64, docName 
 
 	providerLogs.WithFields(log.Fields{"connectionInfo": connectionInfo}).Info("PROD_PostgreConnection")
 	fmt.Printf("\n\n connectionInfo: %s \n\n", connectionInfo)
-	dbMng := imgdatabasemodels.NewDbManager(connectionInfo, providerLogs)
 
+	dbMng := imgdatabasemodels.NewDbManager(connectionInfo, providerLogs)
 	dbMng.TestSqlxDatabaseConnection()
-	dbMng.DropAllTables()
 
 	//-----------
 	// Read file
