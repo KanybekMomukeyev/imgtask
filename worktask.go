@@ -243,7 +243,8 @@ func uploadToPythonCudaServerAsync(imagePath string, docModelID uint64, docName 
 		io.Copy(part, file)
 		writer.Close()
 
-		request, err := http.NewRequest("POST", "http://10.20.0.76:5000/upload", body)
+		request, err := http.NewRequest("POST", "http://104.248.130.106:5000/upload", body)
+		// request, err := http.NewRequest("POST", "http://10.20.0.76:5000/upload", body)
 		// request, err := http.NewRequest("POST", "http://127.0.0.1:5000/upload", body)
 
 		if err != nil {
