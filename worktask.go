@@ -177,7 +177,7 @@ func uploadToPythonCudaServerAsync(imagePath string, docModelID uint64, docName 
 	//-----------
 	// Create folder temporary file
 	//-----------
-	formattedTimeFileName := time.Now().Format("2006-01-02_Mon_15:04:05")
+	formattedTimeFileName := time.Now().Format("2006-01-02_Mon_15:04:05.000000")
 	finalImagePath := fmt.Sprintf("%s%s%s%s%s",
 		"file_store/",
 		uudiddFolderName,
