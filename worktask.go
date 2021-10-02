@@ -78,7 +78,7 @@ func HandleWelcomeEmailTask(ctx context.Context, t *asynq.Task) error {
 		return err
 	}
 	log.Printf(" [*] START WELCOME CUDA SERVER ID=%d, ScanPath=%s, DocName=%s", taskPayload.DocModelID, taskPayload.ImageScanPath, taskPayload.DocName)
-	time.Sleep(10 * time.Second)
+	// time.Sleep(10 * time.Second)
 	uploadToPythonCudaServerAsync(taskPayload.ImageScanPath, taskPayload.DocModelID, taskPayload.DocName)
 	log.Printf(" [*] END WELCOME CUDA SERVER ID=%%d", taskPayload.DocModelID)
 	return nil
@@ -142,7 +142,7 @@ func uploadToPythonCudaServerAsync(imagePath string, docModelID uint64, docName 
 	fmt.Printf("\n\n connectionInfo: %s \n\n", connectionInfo)
 
 	dbMng := imgdatabasemodels.NewDbManager(connectionInfo, providerLogs)
-	dbMng.TestSqlxDatabaseConnection()
+	// dbMng.TestSqlxDatabaseConnection()
 
 	//-----------
 	// Read file
