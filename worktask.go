@@ -24,6 +24,35 @@ import (
 	"github.com/hibiken/asynq"
 )
 
+// EXAMPLE USAGE
+// if false {
+// 	fmt.Printf("---------- START QUEUE CLIENT ------------\n")
+// 	for i := 0; i < 10; i++ {
+// 		t1, err := imgtask.NewWelcomeEmailTask(uint64((47 + i)), "image_path_goes_here", "doc_name")
+// 		if err != nil {
+// 			log.Fatal(err)
+// 		}
+// 		t2, err := imgtask.NewReminderEmailTask(uint64((48 + i)), "image_path_goes_here", "doc_name")
+// 		if err != nil {
+// 			log.Fatal(err)
+// 		}
+// 		// Process the task immediately.
+// 		info, err := asyncClient.Enqueue(t1)
+// 		if err != nil {
+// 			log.Fatal(err)
+// 		}
+// 		log.Printf(" [*] Successfully enqueued task: %+v", info)
+// 		// Process the task 24 hours later.
+// 		// info, err = client.Enqueue(t2, asynq.ProcessIn(24*time.Hour))
+// 		info, err = asyncClient.Enqueue(t2)
+// 		if err != nil {
+// 			log.Fatal(err)
+// 		}
+// 		log.Printf(" [*] Successfully enqueued task: %+v", info)
+// 	}
+// 	return
+// }
+
 // -------------------------------------------------- //
 const (
 	TypeWelcomeEmail  = "email:welcome"
