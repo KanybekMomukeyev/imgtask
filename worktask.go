@@ -106,10 +106,10 @@ func HandleWelcomeEmailTask(ctx context.Context, t *asynq.Task) error {
 	if err := json.Unmarshal(t.Payload(), &taskPayload); err != nil {
 		return err
 	}
-	log.Printf(" [*] START WELCOME CUDA SERVER ID=%d, ScanPath=%s, DocName=%s", taskPayload.DocModelID, taskPayload.ImageScanPath, taskPayload.DocName)
+	log.Printf(" [*] START WELCOME CUDA SERVER ID=%d, ScanPath=%s, DocName=%s\n", taskPayload.DocModelID, taskPayload.ImageScanPath, taskPayload.DocName)
 	// time.Sleep(10 * time.Second)
 	uploadToPythonCudaServerAsync(taskPayload.ImageScanPath, taskPayload.DocModelID, taskPayload.DocName)
-	log.Printf(" [*] END WELCOME CUDA SERVER ID=%%d", taskPayload.DocModelID)
+	log.Printf(" [*] END WELCOME CUDA SERVER ID=%d\n", taskPayload.DocModelID)
 	return nil
 }
 
@@ -230,7 +230,7 @@ func uploadToPythonCudaServerAsync(imagePath string, docModelID uint64, docName 
 
 	// ------ CREATE DB FOLDER MODEL ------ //
 	folderModel := new(dbmodels.FolderModel)
-	folderModel.WordCount = uint64(54321)
+	folderModel.WordCount = uint64(0)
 	folderModel.DocmodelID = docModelID
 	folderModel.CompanyID = uint64(1)
 	folderModel.FolderImagePath = finalImagePath
@@ -355,10 +355,13 @@ func uploadToPythonCudaServerAsync(imagePath string, docModelID uint64, docName 
 			cuttedImages = append(cuttedImages, cuttedimage)
 		}
 
+		folderModel.WordCount = uint64(len(cuttedImages))
+		_, err = dbMng.UpdateFolderModel(folderModel, 3000)
 		if err != nil {
 			log.Fatal(err)
 			return err
 		}
+
 	}
 
 	return nil
