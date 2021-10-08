@@ -337,7 +337,7 @@ func uploadToPythonCudaServerAsync(imagePath string, docModelID uint64, docName 
 			cuttedimage := new(dbmodels.CuttedImage)
 			cuttedimage.CuttedImageState = uint32(dbmodels.CUTTED_IMAGE_NOT_TRANSLATED) // not translated yet.
 			cuttedimage.DocModelID = docModelID
-			cuttedimage.CompanyID = uint64(1)
+			cuttedimage.CompanyID = uint64(0)
 			cuttedimage.FolderID = folderModel.FolderID
 			cuttedimage.ParsedImagePath = milliSecondsString
 			cuttedimage.FolderName = folderModel.FolderName
