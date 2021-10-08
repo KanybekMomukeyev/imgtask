@@ -341,7 +341,7 @@ func uploadToPythonCudaServerAsync(imagePath string, docModelID uint64, docName 
 			cuttedimage.FolderID = folderModel.FolderID
 			cuttedimage.ParsedImagePath = milliSecondsString
 			cuttedimage.FolderName = folderModel.FolderName
-			cuttedimage.SecondName = docName
+			cuttedimage.SecondName = ""
 			cuttedimage.PhoneNumber = docName
 			cuttedimage.Address = docName
 
