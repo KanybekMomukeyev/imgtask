@@ -271,7 +271,7 @@ func uploadToPythonCudaServerAsync(imagePath string, docModelID uint64, docName 
 		io.Copy(part, file)
 		writer.Close()
 
-		request, err := http.NewRequest("POST", "http://10.20.0.76:5000/upload", body)
+		request, err := http.NewRequest("POST", "http://word_detector_nn:5000/upload", body)
 
 		if err != nil {
 			log.Fatal(err)
