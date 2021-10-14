@@ -59,6 +59,8 @@ github.com/KanybekMomukeyev/imgdatabase/v3 v3.0.0-20210930060537-476a078db721 h1
 github.com/KanybekMomukeyev/imgdatabase/v3 v3.0.0-20210930060537-476a078db721/go.mod h1:YVy1/1BonhZ9VtEt6DCQ0bbWaCm6sIvwNniNNRy10p8=
 github.com/KanybekMomukeyev/imgdatabase/v3 v3.0.0-20211006023846-8e0c5d13d7e2 h1:l4yvNmH4/3fJu0zCVLfRlSsyBP9IzJdzI8b8DyOIPVE=
 github.com/KanybekMomukeyev/imgdatabase/v3 v3.0.0-20211006023846-8e0c5d13d7e2/go.mod h1:YVy1/1BonhZ9VtEt6DCQ0bbWaCm6sIvwNniNNRy10p8=
+github.com/KanybekMomukeyev/imgdatabase/v3 v3.0.0-20211014054942-c0fcd19761ac h1:MgC2EqwV2kKEvirgH2N+z0ezlVm5ox9TDyavUwyKKDQ=
+github.com/KanybekMomukeyev/imgdatabase/v3 v3.0.0-20211014054942-c0fcd19761ac/go.mod h1:YVy1/1BonhZ9VtEt6DCQ0bbWaCm6sIvwNniNNRy10p8=
 github.com/Microsoft/go-winio v0.4.16 h1:FtSW/jqD+l4ba5iPBj9CODVtgfYAD8w2wS923g/cFDk=
 github.com/Microsoft/go-winio v0.4.16/go.mod h1:XB6nPKklQyQ7GC9LdcBEcBl8PF76WugXOPRXwdLnMv0=
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
