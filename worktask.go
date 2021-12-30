@@ -85,7 +85,7 @@ type ImageResp struct {
 // -------------------------------------------------- //
 
 // Task payload for any email related tasks.
-type emailTaskPayload struct {
+type EmailTaskPayload struct {
 	ImageScanPath string
 	DocModelID    uint64
 	DocName       string
@@ -93,7 +93,7 @@ type emailTaskPayload struct {
 
 // --------------------------------------------------------------------------------------- //
 func NewWelcomeEmailTask(docModelID uint64, imageScanPath string, docName string) (*asynq.Task, error) {
-	payload, err := json.Marshal(emailTaskPayload{DocModelID: docModelID, ImageScanPath: imageScanPath, DocName: docName})
+	payload, err := json.Marshal(EmailTaskPayload{DocModelID: docModelID, ImageScanPath: imageScanPath, DocName: docName})
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +102,7 @@ func NewWelcomeEmailTask(docModelID uint64, imageScanPath string, docName string
 
 // This one used only for queue server, only queue server!
 func HandleWelcomeEmailTask(ctx context.Context, t *asynq.Task) error {
-	var taskPayload emailTaskPayload
+	var taskPayload EmailTaskPayload
 	if err := json.Unmarshal(t.Payload(), &taskPayload); err != nil {
 		return err
 	}
@@ -115,7 +115,7 @@ func HandleWelcomeEmailTask(ctx context.Context, t *asynq.Task) error {
 
 // --------------------------------------------------------------------------------------- //
 func NewReminderEmailTask(docModelID uint64, imageScanPath string, docName string) (*asynq.Task, error) {
-	payload, err := json.Marshal(emailTaskPayload{DocModelID: docModelID, ImageScanPath: imageScanPath, DocName: docName})
+	payload, err := json.Marshal(EmailTaskPayload{DocModelID: docModelID, ImageScanPath: imageScanPath, DocName: docName})
 	if err != nil {
 		return nil, err
 	}
@@ -123,7 +123,7 @@ func NewReminderEmailTask(docModelID uint64, imageScanPath string, docName strin
 }
 
 func HandleReminderEmailTask(ctx context.Context, t *asynq.Task) error {
-	var taskPayload emailTaskPayload
+	var taskPayload EmailTaskPayload
 	if err := json.Unmarshal(t.Payload(), &taskPayload); err != nil {
 		return err
 	}
